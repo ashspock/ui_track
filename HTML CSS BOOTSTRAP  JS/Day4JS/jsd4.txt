@@ -1,0 +1,469 @@
+Day 4
+-----------
+Ajax.html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body >
+    AJAX Call done here
+
+    <button onclick="makeAjaxCall()" >Get Data</button>
+</body>
+
+<script src="./ajax.js"></script>
+
+</html>
+---------------------------------------------------
+ajax.js
+
+
+// ajax- make a request to the server -> used to get json files
+
+function makeAjaxCall(){
+    console.log('on button clicked');
+
+    // step-1 : create xmlhttp obj
+    let xhr = new XMLHttpRequest();
+    // step-2 : entering method name and url
+    xhr.open('GET', './data.json');
+    // xhr.open('GET', './data2.json'); //will cause error while parsing
+    //step-3 : handling incoming data
+    xhr.onload = () =>{
+        // console.log('data recieved');
+        // console.log( 'inside onload', xhr.responseText);
+        // console.log(typeof xhr.responseText);
+        // console.log(JSON.parse(xhr.responseText));
+        try{
+            let data = JSON.parse(xhr.responseText);
+            console.log(data);
+            console.log("2")
+        }catch(err){
+            console.log("message",err.message)
+        }finally{
+            console.log('finally is invoked after try/catch')
+        }
+
+    };
+    //step-4 : sending the request
+    xhr.send();
+    console.log("outside", xhr.responseText);    
+}
+
+
+// try{
+//     try{
+//         throw new Error("1")
+//     }
+//     finally{
+//         console.log('2')
+//     }
+// }
+// catch(e){
+//     console.log(e.message)
+// }
+
+-----------------------------------------------------------------------
+data.json
+
+{
+    "SET" : "System Engineer Trainee",
+    "SE" : "System Engineer",
+    "SE3" : "System Engineer2",
+    "SSE" : "Senior System Engineer"
+}
+
+------------------------------------------------------------------------
+DOM.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM</title>
+    <!-- script tag -->
+    <!-- <script>
+        function printSt(params) {
+            console.log('hello');            
+        }
+        printSt()
+    </script> -->
+</head>
+<body>
+    <div>
+        
+        <p id='id1' class="hello" >Paragraph 1</p>
+        <p class="special">Paragraph 2</p>
+        <div class="special">
+            <span id='spanId'>Span 1</span>
+        </div>
+    </div>
+
+    <input id='name' ></input>
+
+    <input id='radioBtn' style="width:100%" checked type="radio"/>
+
+</body>
+    <!-- script with src -->
+    <script src="./DOM.JS"></script>
+</html>
+
+----------------------------------------------------------------------------------
+DOM.js
+
+//  dom -> Document Object Model 
+console.log('This is inside DOM.JS file');
+// console.log(document); //DOM Object -> created by browser 
+
+// access by tagName
+// let tags = document.getElementsByTagName('span');
+// console.log(tags);
+
+// access by  classname
+//let classDoc = document.getElementsByClassName('special');
+// console.log(classDoc)
+
+// access by id
+// let idDoc = document.getElementById('id1');
+// console.log(idDoc);
+
+// let pByID = document.getElementById('id1');
+// console.log(pByID);
+// console.log(pByID.id);
+// console.log(pByID.innerText);
+
+// // changing inner text
+// pByID.innerText = 'Changed text';
+// pByID.innerText = '<h1>Text</h1>';
+
+// // changing html
+let spanByID = document.getElementById("spanId");
+console.log(spanByID);
+spanByID.innerText  = 'hello world'
+// spanByID.innerText = '<h1>Hey</h1>';
+spanByID.innerHTML = '<h1>Hey</h1>';
+// spanByID.innerHTML = spanByID.innerText+ "<h1 style='color:red'>Hey</h1>";
+
+// // input field
+// let inputById = document.getElementById('name');
+// console.log(inputById);
+// console.log(inputById.value);//retrieves values entered in field
+
+// // radio
+// let radioByID = document.getElementById('radioBtn');
+// console.log(radioByID.checked); //accesing whether checked or not
+// radioByID.checked =true;// checking manually
+
+
+//Summary
+// document
+// document.getElementsByClassName -> array Obj
+// document.getElementById -> 1 obj
+
+//document.getElementById('input').value -> accesing form field value
+// document.getElementById('radio').checked -> accesing form field value
+
+//.innerHTML
+//.innerText
+--------------------------------------------------------------------------
+DOMEvents.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM Events</title>
+</head>
+<body onload="loaded()">
+    <form onsubmit="onSubmission(event)" >
+        <label>Email</label>
+        <input type="email" id='emailId'
+             onkeyup="onMailChange(event)"/>
+        <span id='mailError'></span>
+
+        <br/><br/>
+
+        <!-- <select >
+            <option></option>
+        </select> -->
+
+        <label>Role</label>
+        <select onchange="onRoleChange(event)" id='roleBlock'>
+            <!-- <option selected  disabled  value="">--select--</option> -->
+            <option value="">--select--</option>
+            
+        </select>
+        <span id='roleError'></span>
+
+        <br/><br/>
+
+        <label>Permanant</label>
+        <input type="radio" name="status" id="yes" value="Y"
+            onclick="onPermaChange(event)" />Yes
+        <input type="radio" name='status' id='no' value="N"
+            onclick=onPermaChange(event) checked/>No
+
+        <br/>
+
+        <button disabled id='submitBtn' >Submit</button>
+
+    </form>
+</body>
+<script src="./DOMEvents.js"></script>
+</html>
+
+<!-- 
+    click -> button
+    change
+    keyup -> on key up
+    mousehover
+    load
+    submit
+ -->
+
+ <!-- form
+    1. email field
+    2. role dropdown
+    3. gender radio button
+    4. button
+-->
+-----------------------------------------------------------------------------
+DOMEvents.js
+
+// console.log('DOM Events js ');
+
+
+function loaded(){
+    console.log('loaded');
+    let obj ={
+        "SET" : "System Engineer Trainee",
+        "SE" : "System Engineer",
+        "SE3" : "System Engineer2",
+        "SSE" : "Senior System Engineer"
+    };
+
+    let roleBlock = document.getElementById("roleBlock");
+    // roleBlock.innerHTML = '<option>1</option>'
+    // roleBlock.innerHTML += '<option>2</option>'
+    for (const key in obj) {
+        console.log(key);
+        console.log(obj[key]);
+        // roleBlock.innerHTML += '<option value='+key+'>'+obj[key]+'</option>'
+        roleBlock.innerHTML = roleBlock.innerHTML+ '<option value='+key+'>'+obj[key]+'</option>'
+    }
+}
+
+function onMailChange(event){
+    // console.log('inside func');
+    let enteredValue = event.target.value;//access value in input field
+    let regex = /\w+@gmail\.(com|in)/;
+    if(new RegExp(regex).test(enteredValue)){
+        document.getElementById('mailError').innerText='';
+        document.getElementById('submitBtn').disabled = false;
+    }else{
+        document.getElementById('mailError').innerText='Incorrect email';
+        document.getElementById('submitBtn').disabled = true;
+    }
+}
+
+function onRoleChange(event) {
+    console.log(event.target.value);
+    if(event.target.value){
+        document.getElementById('roleError').innerText = ''
+    }else{
+        document.getElementById('roleError').innerText = 'Incorrect role'
+    }
+}
+
+function onPermaChange(event) {
+    // console.log(event.target.checked);//returns checked status of radio btn
+    // console.log(event.target.id);
+    // console.log(event.target.value);
+    // let saved = event.target.value;
+    console.log('yes',document.getElementById('yes').checked);
+    console.log('no',document.getElementById('no').checked);
+}
+
+function onSubmission(e){
+    console.log('submitted');
+    e.preventDefault();// STOPS DEFAULT NATURE
+    // alert("submmitted");
+    // let data = confirm('Shall i submit')
+    // console.log(data)
+}
+---------------------------------------------------------------------------
+Try-Catch.js
+
+// // Syntax
+try {
+    
+} catch (error) { // handling error if any in try block
+    
+}finally{ // block which executes after try & catch
+
+}
+
+// // example
+// try {
+//     let str = 'Plain string';
+//     str.length();
+// } catch (error) {
+//     // console.log(error)
+//     console.log(error.message)
+// }
+
+
+// // finally-example 
+// try {
+//     let str = 'Plain string';
+//     str.length();
+//     console.log('i wont be executed because of error in before line');
+// } catch (error) {
+//     console.log(error.message)
+// }finally{
+//     console.log('I will execute')
+// }
+
+
+// // custom error OBJECT -> new Error('message')
+let isShown = false
+try {
+    if( !isShown ){
+        let error = new Error("Custom error message"); //error creation
+        throw error; //throwing error
+    }
+} catch (error) {
+    console.log(error.message);// handling error
+}
+-------------------------------------------------------------------------------------
+webStorage.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Web Storrge</title>
+    <script>
+        // // localStorage doesn't get deleted even after closing chrome tab 
+        // localStorage.setItem('name1', 'Goku');
+        // localStorage.setItem('name2', 'Goku');
+        // localStorage.setItem('name3', 'Goku');
+        // console.log(localStorage.getItem('name1'));
+        // localStorage.clear(); // will clear all local storage
+        // setTimeout( () => localStorage.clear(),2000) 
+
+        // // SessionStorage  
+        // sessionStorage.setItem("key1", "value1");
+        sessionStorage.getItem("key1");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+----------------------------------------------------------------------------------------
+			Testing folder
+
+code.js
+------
+function totalTravelFare(baseFare, taxPercentage){
+	var finalFare;
+	finalFare = baseFare*(1+taxPercentage/100);
+	return finalFare;
+}
+
+function add(a,b) {
+    return a+b
+}
+
+// jasmine - framework 
+
+// testing instructions
+                        /* Below is one time process */
+/*
+    run the below command in terminal -> ONLY FOR infosys VM run below command
+            // path-1
+    npm config set registry  https://infyartifactory.ad.infosys.com/artifactory/api/npm/npm/ 
+*/
+
+/*
+    settin env path process -> 
+    windows search and open 'Edit Environ... for your account' -> select 'Path' variable
+    -> and add below path(Change username in path) C:\Users\<<YOUR USERNAME>>\AppData\Roaming\npm
+    -> click OK -> click OK
+    -> Restart vs code
+*/ 
+
+/*
+    run the below command to install karma and jasmine in a cmd terminal
+    npm install -g karma jasmine-core 
+*/ 
+
+                    /* Setting up karma. for each project has to be done seperately*/
+/* 
+    to create a karma.config.js file run the command -> karma init
+    and answer the below question as given below
+jasmine
+Require.js -> no
+Browser -> Chrome
+files to be covered ->  code.js and then tests/code.test.js and double enter
+glob patterns -> just click enter button
+watch all files -> yes
+            karma.conf.js will be created with all the selections done 
+*/
+
+/*
+    Start running the test cases -> karma start
+*/
+
+---------------------------------------------------------
+code.test.js
+--------------
+
+
+// set of all related test cases -> test suite
+// it -> test case which tests a functionality
+
+describe('Testing total Travel fare', ()=>{    
+    it('Test Case 1: returning value',() =>{
+        let res = totalTravelFare(100, 2);
+        expect(res).toBeDefined()
+    })
+
+    it('Test Case 2: Checking expected',() =>{
+        let res = totalTravelFare(100, 2);
+        let expectedOP = 102;
+        expect(res).toEqual(expectedOP);
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,304 @@
+Day 3
+
+Async-Await.js
+		
+let val;
+
+let func = () => console.log(val)
+function promiseRet() {
+    return new Promise(function (resolve, reject) {
+        setTimeout(() => {
+            val = 26;
+            resolve(val);
+        }, 2009);
+    })
+}
+
+// handle promise using async-await - waits till promise is rej or res
+async function handlingPromise(){
+    let ret = await promiseRet();
+    console.log('ret',ret);
+    console.log('val', val);
+}
+handlingPromise();
+
+----------------------------------------------
+callback.js
+
+
+let value;
+
+let secondFunc = () => console.log(value);
+let thirdFunc = () => console.log(value + 25);
+
+let firstFunc = (callback) =>{
+    setTimeout(function () {
+        value = 25;// data fecthed from server
+        callback();
+    },1000);// invokes a function after a interval of time
+};
+
+firstFunc(thirdFunc);
+
+-------------------------------------------------------
+
+classes.js
+
+// synatx class <<classname>{}
+class Employee {
+
+    static hello = 'helo'
+
+    // built in method -> invoked on creation of object
+    constructor(name, age) {
+        // console.log('constructor is called on creation of obj');
+        // console.log(name, age)
+        this.empName = name; //public attributes
+        this.age = age;
+    }
+
+    // methods in classes
+    swipeIn() {
+        // console.log(this)
+        console.log('Swiped in ' + this.empName);
+    }
+
+    //static method
+    static dummyPrint() {
+        console.log('static method')
+    }
+
+}
+
+let obj1 = new Employee('John', 24);
+let obj2 = new Employee('Wick', 26);
+// console.log(obj1.empName);
+// console.log(obj2.empName);
+// obj1.swipeIn();
+
+// obj2.swipeIn();
+// Employee.dummyPrint();
+// console.log(Employee.hello)
+// Inheritance -> extends
+
+class Child extends Employee {
+    constructor(name ,age) {
+        super(name, age); //calls the respective parents method
+    }
+}
+
+let chiObj = new Child('Jason', 26);
+// chiObj.swipeIn();
+// console.log(chiObj.empName)
+// console.log(chiObj.age);
+// Child.dummyPrint()
+
+console.log(chiObj);
+
+--------------------------------------------------------------------
+
+json.js
+
+// JSON -> JavaScript Object Notation
+// JSON -> Object + Notation('')
+
+let normalObj = { empName : 'John', age : 26 };
+
+//Conditions to convert an Obj to  JSON
+// 1. object should have ' at start and end -> '{ }'
+// 2. each key name should be embedded with " -> { "keyname" : value }
+// 3. string values should also be double quotes
+
+// let jsonObj = '{ "empName" : "John", "age" : 26 }'; //manually
+// console.log(typeof jsonObj)
+
+        // Object to JSON -> JSON.strigify
+let normaToJSON = JSON.stringify(normalObj);
+// console.log('normaToJSON',normaToJSON, typeof normaToJSON); //string
+// console.log('string', String(normalObj)) //wrong way to stringify object
+
+        // JSON to Obj -> JSON.pasre
+let jsonToObj = JSON.parse(normaToJSON);
+// console.log("jsonToObj", jsonToObj, typeof jsonToObj);// object
+
+
+// console.log(JSON.parse({empName : 'hello'})); // error -> imroper json format
+
+// use case: -> data transfer between one server to one server is done using json 
+
+--------------------------------------------------------------------------------------
+object.js
+
+
+// Syntax
+let obj = {
+    keyName: '1', 
+    keyName : '2',
+    age: 26,
+    name: 'Jason',
+    skills: ['react', 'node'],
+    dummyObj: { nestedObj: { dummyKey: "dummyvalue" } },
+    '123hello': 'This is a value',
+    addSkill(){
+        // console.log(this);
+        this.skills.push('express'); //modifying obj values using this
+        console.log(this.skills)
+        // console.log('add skill is here');
+    }
+}
+obj.age = 30;
+// console.log(obj);
+// console.log(obj.name) // accessing the value of a key
+// console.log(obj["123hello"]);// Other syntax of accessing key name
+// console.log(obj.dummyObj.nestedObj.dummyKey);
+// obj.addSkill()
+
+// for loop of object to print all keys
+// for (const key2 in obj) {
+//     // console.log(key2);
+//     // console.log(obj.key2); //wrong way
+//     // console.log(obj[key2]);//
+// }   
+
+// Easier way
+// Objects.keys(<<Obj>>) -> array of keys names of Obj
+// let keyNames = Object.keys(obj);
+// console.log(keyNames)
+
+// let values = Object.values(obj);
+// console.log(values)
+
+// Concatenation using spread operator(...)
+let obj1 = { key3 : 'value3', 'key4' : 'value4' };
+let obj2 = { key1 : 'value1', 'key2' : 'value2' };
+let obj4 = { key5 : 'value1', 'key6' : 'value2' };
+
+let obj3= {}
+
+// Method 1
+// for (const key in obj2) {
+//    obj3[key] = obj2[key]
+// }
+
+//Method 2 -> spread operator -> is also applicable for arrays
+obj3 = { ...obj2, ...obj1, ...obj4 };
+console.log('Obj3',obj3)
+
+
+// destrcuturing -> go through this concept later
+
+---------------------------------------------------------------------------
+
+promises.js
+
+// Syntax to create a promise -> to handle async events
+let func = () => console.log(val)
+
+// dumm = () => new Promise()
+// dumm().then()
+
+function promiseRet() {
+    return new Promise(function (resolve, reject) {
+        setTimeout(() => {
+            val = 26;
+            // reject(val);
+            resolve(val)
+        }, 1000);
+    })
+}
+
+promiseRet()
+.then(data => {
+    func(data);
+    console.log('1st then');
+    return '12'
+})
+.catch((data)=>{
+    console.log('1st catch');
+    throw new Error('error code');
+})
+.then((data) =>{
+    console.log( 'coming from prev block', data)
+    console.log('2nd then');
+})
+.catch((e) =>{
+    console.log(e.message);
+    console.log('2nd catch');
+})
+console.log(2);
+// console.log(promiseRet())
+
+------------------------------------------------------------------------
+
+regexPattern.js
+
+//  regex -> pattern used to check format of value
+
+// -> /el/ -> 'hello' -> el is present
+// -> [A-Za-z] -> checks any one alphabet
+// -> [^A-Za-z] -> checks other than alphabets
+// -> [0-9] -> checks for one number
+// -> [*&$] -> checks for either * or & or $
+        //  [], ^,$  -> meta characters
+// -> ^ -> starts with
+// -> $ -> ends with
+// -> (ac|bc) -> either ac or bc
+        //   Quantifiers
+// + -> atleast one or more number of PREVIOUS character
+// ? -> either 0 or 1 times
+// * -> either 0 or more 
+
+// requirements of pattern of mail
+// 1. before @ -> any number alphabets or numbers but should start with alphabet
+// 2. after @ -> only alhpabets, atleast one
+// 3. should end with .com or .in
+
+// . -> any one character
+// \. -> expects a single .
+
+let regex = /hello/;
+let email = 'abc@gmail.com';
+
+let mailRegex = /^[A-Za-z][A-Za-z0-9]+@[A-Za-z]+\.(com|in)$/;
+// shorten format
+// mailRegex = /^[A-Za-z]\w*@[A-Za-z]+\.(com|in)/
+
+// match regex with string/number
+// test -> works for both number and strings, returns true or false
+let isMatched = new RegExp(mailRegex).test(email);
+console.log(isMatched)
+let op = new RegExp(/[0-9]+/).test(120);
+console.log(op)
+
+// match -> works only for strings, returns null, arrays
+let matchOp = email.match(mailRegex);
+console.log(matchOp);
+
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

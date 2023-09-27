@@ -1,0 +1,47 @@
+/*Linkng External CSS*/
+/*p{color: green}*/
+/*All three element are green. Evevn though the 3rd para element is in div tag
+But becoz it is of type p, the styling is applied, Hence Type Selector*/
+
+/*now after  using id selector*/
+#backgroundOrange{
+    background-color:bisque;
+}
+/*Although all four are of type p but now we have given id for the fourth tag*/
+
+/*now we come to Class selector*/
+table,td,tr{ /*To set the border*/
+    border: 1px indigo solid;
+    border-collapse: collapse;
+    min-width: 50px;
+    text-align: center;
+}
+/* in the above code "," is used to group multiple selector
+    The style will be applied to all the selectors  */
+
+/*to give gray background to 1st and 3rd row 
+note we have used class selector by defining <tr class="setGray"> for 1 and 3 row*/
+.setGray{
+    background-color: gray;
+}
+/* "." represents it is a class selector 
+    ".setGray" selects all the elements with class attribute value as getGray*/
+
+/*Universal selector*/
+*{font-family: cursive;}    
+/*used when we need to apply a style to all the elements in the web page*/
+
+/*Attribute selector*/
+
+/*1*/
+/*p[id] { 
+    color:hotpink;
+}*/
+/*<!--Selects the html elements if the attribute and its value of the html elements 
+        matches the selector-->*/
+
+/*2*/
+/* Selects all p tags which has id and its value id 2ndpId */
+p[id='pTd']{
+    color:red;
+}

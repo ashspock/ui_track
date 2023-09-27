@@ -1,0 +1,52 @@
+*{ /* removing */
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+nav{
+     display: flex; /*comes next to each other*/
+     justify-content: space-around; /* add space around and content stretches till the entire width */
+     align-items: center;
+     min-height: 8vh;
+     background-color: #5D4954;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo{
+    /*styling of logo */
+    color: rgb(226, 226, 226);
+    text-transform: uppercase; /*all content to upper case*/
+    letter-spacing: 5px; /*creates gap between letters of the word*/ 
+    font-size: 20px; /*increase in font size*/
+}
+.nav-links{
+    display: flex;
+    /* bac kground-color: rgb(255, 1, 1); */
+    justify-content: space-around;
+    width: 30%;
+}
+.nav-links li{
+    list-style: none;
+    /* removes the black dots from options */
+}
+.nav-links a{
+    color: rgb(226, 226, 226);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.burger{
+    display :none;
+
+}
+
+.burger div{ /*styling for burger icon*/
+    width: 25px;
+    height: 3px;
+    background-color: seashell;
+    margin: 5px; /*for gap in between */
+}
+
+@media screen and (max-width:769px)

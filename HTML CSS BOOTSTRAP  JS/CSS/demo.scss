@@ -1,0 +1,16 @@
+//variables
+$bgColor:red;
+
+//Nesting
+nav{
+    background-color: $bgColor;
+    a{
+        text-decoration: none;
+        span{
+            color:green;
+        }
+        span:hover{
+            color:red;
+        }
+    }
+}

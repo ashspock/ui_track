@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div,h1 {
+            border: 1px solid;
+        }
+        div.outer{
+            border: 5px solid;
+            border-color: bisque;
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        body{
+            margin-top: 0px;
+        }
+        .div2{
+            background-color:pink;
+        }
+        div2.inner{
+            position: absolute;
+            bottom: 0px;
+        }
+        .wrapper{
+            height: 200px;
+            padding-left: 60em;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">Hello</div>
+    </div>
+    <div class="wrapper">
+        <div class="outer div 2">
+            <div class="inner">Hello</div>
+        </div>
+    </div>
+
+</body>
+</html>

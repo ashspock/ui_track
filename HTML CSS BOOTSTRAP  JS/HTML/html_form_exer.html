@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Special Input Types Demo</title>
+</head>
+<body>
+<h3><center>Customer Registration</center></h3><br><br>
+<center><form name="custForm">
+ 
+	 User Name	:   <input required type="text" name="user_name" id="" maxlength="15" pattern="/^[A-Za-z]{1,}+$/">  <br><br><!-- focus is here when page is loaded) -->
+ 
+     Password 	:   <input type="password" name="password" id="" minlength="8" maxlength="12" pattern="/^[0-9]+[A-Za-z0-9]*+[0-9]$/"> <br><br>	<!-- password should contain alphabets imposed using pattern attribute -->
+  
+	 Email	:    <input required type="email" size="30" autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/> <br><br>  <!-- autocomplete provides auto fill feature when set to 'on' -->
+	 
+	 <div>
+         <label for="gender">Gender:<!-- radio buttons--></label>
+         <input type="radio" value="male" name="gender" id="gender">Male
+         <input type="radio" value="female" name="gender" id="gender">Female
+         <input type="radio" value="other" name="gender" id="gender">Other
+    </div> 
+	 
+	 Age (Yrs)	:   <input type="number" name="age" id="age" max="60" min="21" >    <br><br>	<!-- required attribute : Age is necessary -->
+    <div>
+        <label for="address">Address: </label>
+        <textarea name="address" id="address" cols="20" rows="4" maxlength="100"></textarea>
+        <br><br>
+
+    </div>
+ 
+ 	 Company website:  <input required type="email" name="company_email" id="email" pattern="/^[A-Za-z][A-za-z0-9]*@[A-Za-z]+\.(com|in)$/">  <br><br>
+  
+	<div>
+        <label for="country">Choose country:</label>
+        <select name="" id="country">
+            <option value="" >select</option>
+            <option value="India">India</option>
+            <option value="US">United States</option>
+            <option value="Germany">Germany</option>
+            <option value="Japan">Japan</option>
+        </select>    
+    </div> 
+	 <br><br>
+	 
+	  Date of Journey:          <br><br>
+    
+    <div>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </div>
+</form>
+</center>
+</body>
+</html>

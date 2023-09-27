@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Demo</title>
+    <style>
+        div {
+            height: 200px;
+            width: 300px;
+            border: 1px solid;
+        }
+        .one{
+            background-color: lightblue;
+        }
+        h1,h2{color:blue}
+        div h1{
+            color:red;
+        }
+        div span{
+            color:green;
+        }
+        div>span{
+            color:blue;
+        }
+        h1~h2{
+            color :red;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div>
+        <h1>hello</h1>
+        <h2>world</h2>
+        <h2>H2</h2>
+
+    </div>
+    <h2>h2 outside div</h2>
+</body>
+<body>
+    <div class="one">
+        <span>Span directly in div</span>
+        <h1>Hello <span>World</span> CSS</h1>
+    </div>
+    <h1>Outside</h1>
+    <h2>This is h2</h2>
+    
+</body>

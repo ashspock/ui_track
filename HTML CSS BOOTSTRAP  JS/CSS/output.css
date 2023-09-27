@@ -1,0 +1,14 @@
+nav {
+  background-color: red;
+}
+nav a {
+  text-decoration: none;
+}
+nav a span {
+  color: green;
+}
+nav a span:hover {
+  color: red;
+}
+
+/*# sourceMappingURL=output.css.map */

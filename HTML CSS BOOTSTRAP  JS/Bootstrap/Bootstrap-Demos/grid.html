@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootsrap</title>    
+
+    <!-- Bootstrap Link -->
+    <link rel="stylesheet" href="./bootstrap.css"> 
+
+    <style>
+        div{
+            background-color: aqua;
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Bootsrap - CSS Framework -->
+    <!-- CSS Framework -> pre implemented styling sheet -->
+    <!-- 1. Browser compatibility -->
+    <!-- 2. Responsiveness, few other features to speed up development -->
+    <!-- Container - leaves margin  -->
+    <!-- <div class="container">
+        content
+    </div>     -->
+
+    <!-- Container-fluid - full width -->
+    <div class="container-fluid d.flex-column">hello</div>
+
+    <!-- row - inlines div-->
+    <div class="container-fluid">
+        <div class="row">
+            <div>hello</div>
+            <div>hello</div>
+        </div>
+    </div>
+
+    <!-- grid system -> 1 to 12 -->
+    <!-- row has -15px margin and fluid has +15px padding -->
+    <!-- md -medium, small- sm, etxra small, large - lg , extra large -lg -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 col-md-1">Empty Space</div>
+            <div class="col-lg-5 col-md-7">Content</div>
+            <div class="col-lg-3 col-md-3">Suggestions</div>
+            <div class="col-lg-2 col-md-1">Extra space</div>
+        </div>
+    </div>
+    <br/>
+    <!-- Offset -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- <div class="col-lg-2 col-md-1">Empty Space</div> -->
+            <!-- <div class="col-md-3 col-lg-4 offset-lg-1">1st block</div> -->
+            <!-- <div class="col-lg-4 offset-2">2nd block</div>             -->
+            <!-- <div class="col-md-3 offset-3 col-lg-4 offset-lg-2">some</div> -->
+            <!-- <div class="offset-3 cocol-md-6l-md-6">some</div> -->
+            <div class="col-xs-6 col-md-6">
+                Column 1
+                <div class="card">Card</div>
+            </div>
+            <div class="col-xs-6 col-md-6">
+                Column 2
+                <div class="form">Form</div>
+            </div>
+            <!-- <div class="col-xs-6 col-md-1">Column 3</div> -->
+        </div>
+        <!-- 1space, 4 blocks, 2 spaces, 4 blocks, 1space -->
+    </div>
+</body>
+</html>
+<!-- xs < sm < md < lg < xl -->

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOMEvents</title>
+</head>
+<body>
+    <form onsubmit="onSubmission(event)" action="">
+        <label for="">Email</label>
+        <!-- <input type="emial" id='emailId' onkeyup="console.log('abc')" /> -->
+        <!-- <input type="email" id='emailId' onkeyup="onMailChange()" /> -->
+        <input type="email" id='emailId' onkeyup="onMailChange(event)" />
+        <span id='mailError'></span>
+        
+        <br>
+        <br>
+
+        <label for="">Role</label>
+        <select onchange="onRoleChange(event)" name="" id="roleblock">
+            <option disabled value="">--select--</option>
+            <!-- <option value="SET">System Engineer Trainee</option>
+            <option selected value="SE">System Engineer</option>
+            <option value="SSE">Senior System Engineer</option> -->
+            <option onload="loaded()" value=""></option>
+        </select>
+        <span id="roleError"></span>
+
+        <br>
+        <br>
+
+        
+
+
+        <label for="">Permanant</label>
+        <input type="radio" name="status" id="yes" onclick="onPermaChange(event)" />Yes
+        <input type="radio" name="status" id="no" onclick="onPermaChange(event)" />No
+        
+        <br>
+        <br>
+
+        <!-- <button onclick="onSubmit(e)">Submit</button> -->
+        <button disabled id="submitBtn">Submit</button>
+    </form>
+</body>
+<script src="./DOMEvents.js"></script>
+</html>
+
+<!-- click-> button
+    change
+    keyup -> on key up
+    mousehover
+    load
+    submit
+-->
+
+<!-- Form
+1. username
+2. email field
+3. role dropdown
+4. button -->
+
+
+<!-- from Chebolu Saiguptha (internal) to everyone:    11:38 AM
+        <label>Role</label>
+        <select onchange="onRoleChange(event)" >
+            <option disabled value="">--select--</option>
+            <option value="SET">System Engineer Trainee</option>
+            <option value="SE">System Engineer</option>
+            <option value="SSE">Senior System Engineer</option>
+        </select>
+        <span id='roleError'></span>
+from Chebolu Saiguptha (internal) to everyone:    11:38 AM
+function onRoleChange(event) {
+    console.log(event.target.value);
+    if(event.target.value){
+        document.getElementById('roleError').innerText = ''
+    }else{
+        document.getElementById('roleError').innerText = 'Incorrect role'
+    }
+} -->

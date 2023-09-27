@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Design</title>
+    <style>
+        .grid-container{
+            display: grid;/*do not replace it with table; has its own symanticpurpose*/
+            grid-template-columns: 1fr 1fr 1fr 1fr;/*3 columns in a row entire space is split*/
+            grid-template-rows: 1fr 1fr/*fragments*/;
+            column-gap: 10px;
+            row-gap: 10px;
+        }
+        .item{
+            border: 1px solid;
+            height: 50px;
+        }
+        .item2{
+            grid-column: 2/4;
+        }
+        /*order of media query matters becoz execution happens in order*/
+        @media screen and (max-width: 1600px){
+            h1{color: red;}
+        }
+        @media screen and (max-width:800px){
+            h1{color: green;}
+        }
+        @media screen and (max-width:600px){
+            h1{color:yellow;}
+        }
+        .grid-container{
+            grid-template-columns: 1fr;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello</h1>
+    <div class="grid-container"><!--Anything you add here automatically gets added-->>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+</html>

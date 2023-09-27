@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+    <table border="1px">
+        <thead>
+            <tr>
+                <th colspan="3">XYZ University Student Registration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="5"><b>Personal Details</b></td>
+            </tr>
+            <tr>
+                <td >First Name<label style="color: red;">*</label></td>
+                <td><input type="text" maxlength="10" style="background-color: rgb(235, 217, 116);" required></td>
+            </tr>
+            <tr>
+                <td>Last Name<label style="color: red;">*</label></td>
+                <td><input type="text" maxlength="10" style="background-color: rgb(235, 217, 116);" required></td>
+            </tr>
+            <tr>
+                <td>Date of Birth<label style="color: red;">*</label></td>
+                <td><input type="date" required></td>
+            </tr>
+            <tr>
+                <td>Gender<label style="color: red;">*</label></td>
+                <td>
+                    <input type="radio" name="gender" id="male"><label for="male">Male</label>
+                    <input type="radio" name="gender" id="female"><label for="female">Female</label>
+                    <input type="radio" name="gender" id="other"><label for="other">Other</label>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="5"><b>Academic Details</b></td>
+            </tr>
+            <tr>
+                <td>Degree<label style="color: red;">*</label></td>
+                <td>
+                    <select>
+                        <option id="bachelor"><label for="bachelor">Bachelor</label></option>
+                        <option id="masters"><label for="masters">Masters</label></option>
+                        <option id="doctorate"><label for="doctorate">Doctorate</label></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Specialization<label style="color: red;">*</label></td>
+                <td><input type="text" maxlength="40" style="background-color: rgb(235, 217, 116);" required placeholder="English Literature"></td>
+            </tr>
+            <tr>
+                <td>Mode of instruction<label style="color: red;">*</label></td>
+                <td>
+                    <input type="checkbox" name="instruction" id="classroom" checked><label for="classroom">Classroom</label>
+                    <input type="checkbox" name="instruction" id="online"><label for="online">Online</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Current CGPA<label style="color: red;">*</label></td>
+                <td><input type="number" step="0.1" max="5" required></td>
+            </tr>
+            <tr>
+                <td rowspan="3"><b>Contact Details</b></td>
+            </tr>
+            <tr>
+                <td>Phone Number<label style="color: red;">*</label></td>
+                <td><input type="tel" required></td>
+            </tr>
+            <tr>
+                <td>Address<label style="color: red;">*</label></td>
+                <td >
+                    <textarea rows="4" cols="40" style="background-color: rgb(235, 217, 116);" required>
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;font-weight: bold;">
+                    <p>I assure all the details entered are correct: <label style="color: red;">*</label>
+                        <input type="checkbox" value="Yes" id="yes">
+                        <label for="yes">Yes</label>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;">
+                        <input type="submit" id="button">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

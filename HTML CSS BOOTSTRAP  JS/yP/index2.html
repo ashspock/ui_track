@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="icon" href="spacefm_103907.ico">
+</head>
+<body>
+    <h1><b>Forms</b></h1>
+    <form autocomplete="off">   
+        <!--label makes the respective form field active-->
+        <label for="user">Username</label>
+        <input maxlength="10" minlength="4" name="user" type="text" id="user" placeholder="Name">
+        <br>
+        <label for="email">E-mail</label>
+        <input name="email"   type="email" id="email">
+        <br>
+        <select name="products" id="product">
+            <option value="None">Select</option>
+            <option value="Macbook 2020">Macbook</option>
+            <option value="Ipad 2021">Ipad</option>
+        </select>
+        <br>
+        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        <br>
+        <input type="radio" name="product" value="Macbook" id="">
+        <input type="radio" name="product" value="Iphone" id="">
+        <input type="radio" name="product" value="Ipad" id="">
+        <input type="radio" name="product" value="Iwatch" id="">
+        <!--again the value gets submitted-->
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <!--html does some validation for us if we specify the type field 
+        **only the fields input with name attribute get submitted 
+        **when  we hit submit the value field content gets submitted
+
+        action attribute of the form submits the form date after complition to some place-->    
+</body>
+</html>

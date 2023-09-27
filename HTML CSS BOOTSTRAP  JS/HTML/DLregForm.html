@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Input Elements</title>
+        <style>
+            *{
+                padding: 0px;
+                margin: 0px;
+            }
+            form,p {
+                /* Center the form on the page */
+                margin: 0 auto;
+                width: 500px;
+                /* Form outline */
+                padding: 1em;
+                border: 1px solid #CCC;
+                border-radius: 1em;
+                background-color: lightcoral;
+                text-align: center;
+            }
+            p{
+                font-size: 200%;
+                padding: auto;
+                font-style: italic;
+            }
+            div{
+                text-decoration: lightsalmon;
+                text-align: center;
+                margin: 10px;
+                padding-inline-start: 10px;
+                
+            }
+            input{
+                /* margin-left: 20px; */
+                margin-inline-start: 10px;
+                background-origin: padding-box;
+                /* padding-block: inherit; */
+                /* text-align: center; */
+                /* margin-inline-start: 10px; */
+                /* vertical-align: 5px; */
+                /* To make sure that all text fields have the same font settings
+                By default, textareas have a monospace font */
+                font: 1em sans-serif;
+
+                /* Uniform text field size */
+                width: fit-content;
+                height: 20px;
+                padding-inline: 10px;
+                box-sizing: content-box;
+
+                /* Match form field borders */
+                border: 2px solid #999;
+            }
+            button{
+               padding-top: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Application for Drivers licence
+        </p>
+        <br>
+        <form method="post" action="#">
+            <div>
+                Name:<input type="text" required="required" pattern="[A-Za-z]*">      
+            </div>
+            <div>Age: <input type="number" name="age" id="age" required="required" ></div>   
+            <div>Address: <input type="text" name="address" id="address" maxlength="30"></div> 
+            <div>Contact no. <input type="number" name="Contact_number" id="Contact_number"></div>  
+                <!-- <textarea name="applicant_address" id="" cols="30" rows="10"></textarea>   -->
+                <br/>
+                <br/>
+            <input type="checkbox" required="required" name="" id="checkbox" checked>
+            I own an expired driver's license.<br>
+            <input type="submit" >
+        </form>
+    </body>
+</html>

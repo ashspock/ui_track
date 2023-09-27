@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+    <style>
+        form {
+            border: 1px solid rgb(128, 128, 128, 1);
+            border-radius: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <form>
+
+                    <!-- Username -->
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" class="form-control" />
+                    </div>
+
+                    <!-- Position -->
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select id="role" class="form-control">
+                            <option>System Engineer Trainee</option>
+                            <option>System Engineer</option>
+                            <option>Senior System Engineer</option>
+                        </select>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" />
+                    </div>
+
+                    <!-- Radio button -->
+                    <div class="form-group">
+                        <div>Gender</div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="gender">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="gender">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- <div class="text-center"> --><!-- Centered Button -->
+                        <button class="btn btn-primary btn-block">Submit</button>
+                    <!-- </div> -->
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
